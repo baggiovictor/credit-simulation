@@ -20,12 +20,17 @@ public class CreditSimulationTest {
     final var expectedInterestRate = new BigDecimal("0.05");
     final var expectedTotalPayment = new BigDecimal("1050.00");
     final var expectedTotalInterest = new BigDecimal("50.00");
+    final var expectedEmail = "baggiovictor@gmail.com";
+    final var expectedName = "Victor Baggio";
 
     final var actualCreditSimulation = newCreditSimulation(
         expectedAmount,
         expectedTermInMonths,
         expectedCustomerAge,
-        FIXED_INSTALLMENT);
+        FIXED_INSTALLMENT,
+        expectedEmail,
+        expectedName
+    );
 
     assertNotNull(actualCreditSimulation);
     assertNotNull(actualCreditSimulation.getId());
@@ -49,12 +54,16 @@ public class CreditSimulationTest {
     final var expectedInterestRate = new BigDecimal("0.04");
     final var expectedTotalPayment = new BigDecimal("1040.00");
     final var expectedTotalInterest = new BigDecimal("40.00");
+    final var expectedEmail = "baggiovictor@gmail.com";
+    final var expectedName = "Victor Baggio";
 
     final var actualCreditSimulation = newCreditSimulation(
         expectedAmount,
         expectedTermInMonths,
         expectedCustomerAge,
-        FIXED_INSTALLMENT);
+        FIXED_INSTALLMENT,
+        expectedEmail,
+        expectedName);
 
     assertNotNull(actualCreditSimulation);
     assertNotNull(actualCreditSimulation.getId());
@@ -78,12 +87,16 @@ public class CreditSimulationTest {
     final var expectedInterestRate = new BigDecimal("0.03");
     final var expectedTotalPayment = new BigDecimal("1030.00");
     final var expectedTotalInterest = new BigDecimal("30.00");
+    final var expectedEmail = "baggiovictor@gmail.com";
+    final var expectedName = "Victor Baggio";
 
     final var actualCreditSimulation = newCreditSimulation(
         expectedAmount,
         expectedTermInMonths,
         expectedCustomerAge,
-        FIXED_INSTALLMENT);
+        FIXED_INSTALLMENT,
+        expectedEmail,
+        expectedName);
 
     assertNotNull(actualCreditSimulation);
     assertNotNull(actualCreditSimulation.getId());
@@ -107,12 +120,16 @@ public class CreditSimulationTest {
     final var expectedInterestRate = new BigDecimal("0.02");
     final var expectedTotalPayment = new BigDecimal("1020.00");
     final var expectedTotalInterest = new BigDecimal("20.00");
+    final var expectedEmail = "baggiovictor@gmail.com";
+    final var expectedName = "Victor Baggio";
 
     final var actualCreditSimulation = newCreditSimulation(
         expectedAmount,
         expectedTermInMonths,
         expectedCustomerAge,
-        FIXED_INSTALLMENT);
+        FIXED_INSTALLMENT,
+        expectedEmail,
+        expectedName);
 
     assertNotNull(actualCreditSimulation);
     assertNotNull(actualCreditSimulation.getId());

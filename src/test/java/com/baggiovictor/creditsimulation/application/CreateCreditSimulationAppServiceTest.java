@@ -36,12 +36,16 @@ public class CreateCreditSimulationAppServiceTest {
     final var expectedAge = 30;
     final var expectedAmount = new BigDecimal("1000.00");
     final var expectedTerm = 12;
+    final var expectedEmail = "baggiovictor@gmail.com";
+    final var expectedName = "Victor Baggio";
 
     final var command = new CreateCreditSimulationCommand(
         expectedAmount,
         LocalDate.now().minusYears(expectedAge),
         expectedTerm,
-        FIXED_INSTALLMENT
+        FIXED_INSTALLMENT,
+        expectedEmail,
+        expectedName
     );
 
     final var result = service.execute(command);

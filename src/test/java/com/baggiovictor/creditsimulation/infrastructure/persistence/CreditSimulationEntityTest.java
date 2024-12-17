@@ -19,11 +19,15 @@ public class CreditSimulationEntityTest {
     final var totalPayment = new BigDecimal("1200.00");
     final var totalInterest = new BigDecimal("200.00");
     final var interestRate = new BigDecimal("0.02");
+    final var customerEmail = "baggiovictor@gmail.com";
+    final var customerName = "Victor Baggio";
     final var createdAt = now();
     final var updatedAt = now();
 
     CreditSimulationEntity entity = new CreditSimulationEntity(
         id,
+        customerEmail,
+        customerName,
         amount,
         termInMonths,
         monthlyInstallment,
@@ -37,6 +41,8 @@ public class CreditSimulationEntityTest {
 
     assertNotNull(entity);
     assertEquals(id, entity.getId());
+    assertEquals(customerEmail, entity.getCustomerEmail());
+    assertEquals(customerName, entity.getCustomerName());
     assertEquals(amount, entity.getAmount());
     assertEquals(termInMonths, entity.getTermInMonths());
     assertEquals(monthlyInstallment, entity.getMonthlyInstallment());
