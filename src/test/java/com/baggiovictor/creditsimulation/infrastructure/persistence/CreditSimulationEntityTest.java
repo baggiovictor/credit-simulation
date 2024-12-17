@@ -1,16 +1,15 @@
 package com.baggiovictor.creditsimulation.infrastructure.persistence;
 
-import static java.time.Instant.*;
+import static java.time.Instant.now;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.math.BigDecimal;
-import java.time.Instant;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CreditSimulationEntityTest {
+
   @Test
   void givenAllArgsConstructor_whenCreated_thenFieldsAreInitialized() {
     final var id = "123";
@@ -19,6 +18,7 @@ public class CreditSimulationEntityTest {
     final var monthlyInstallment = new BigDecimal("100.00");
     final var totalPayment = new BigDecimal("1200.00");
     final var totalInterest = new BigDecimal("200.00");
+    final var interestRate = new BigDecimal("0.02");
     final var createdAt = now();
     final var updatedAt = now();
 
@@ -29,6 +29,7 @@ public class CreditSimulationEntityTest {
         monthlyInstallment,
         totalPayment,
         totalInterest,
+        interestRate,
         createdAt,
         updatedAt,
         null
