@@ -14,7 +14,9 @@ public interface CreateCreditSimulationUseCase {
       @JsonProperty("valorSolicitado") BigDecimal amount,
       @JsonProperty("dataNascimento") LocalDate customerBirthDate,
       @JsonProperty("prazoPagamento") int termInMonths,
-      @JsonProperty("tipoEmprestimo") CreditSimulationEnum type) {
+      @JsonProperty("tipoEmprestimo") CreditSimulationEnum type,
+      @JsonProperty("nome") String name,
+      @JsonProperty("email") String email) {
 
   }
 }

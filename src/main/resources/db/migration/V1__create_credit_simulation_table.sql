@@ -1,4 +1,4 @@
-CREATE TABLE credit_simulation
+CREATE TABLE IF NOT EXISTS credit_simulation
 (
     id                  VARCHAR(255)   NOT NULL,
     amount              DECIMAL(20, 2) NOT NULL,
@@ -10,7 +10,13 @@ CREATE TABLE credit_simulation
     created_at          TIMESTAMP      NOT NULL,
     updated_at          TIMESTAMP      NOT NULL,
     deleted_at          TIMESTAMP,
+    customer_name       VARCHAR(255)   NOT NULL,
+    customer_email      VARCHAR(255)   NOT NULL,
     PRIMARY KEY (id)
-);
+    );
 
-CREATE INDEX idx_credit_simulation_id ON credit_simulation (id);
+
+CREATE INDEX IF NOT EXISTS idx_credit_simulation_customer_name ON credit_simulation (customer_name);
+CREATE INDEX IF NOT EXISTS idx_credit_simulation_customer_email ON credit_simulation (customer_email);
+
+CREATE INDEX IF NOT EXISTS idx_credit_simulation_customer_name_email ON credit_simulation (customer_name, customer_email);

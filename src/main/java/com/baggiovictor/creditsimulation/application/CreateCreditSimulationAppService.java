@@ -22,12 +22,16 @@ public class CreateCreditSimulationAppService implements CreateCreditSimulationU
     final var aAmount = command.amount();
     final var aTermInMonths = command.termInMonths();
     final var aType = command.type();
+    final var aName = command.name();
+    final var anEmail = command.email();
 
     final var aCreditSimulation = newCreditSimulation(
         aAmount,
-          aTermInMonths,
+        aTermInMonths,
         anAge,
-        aType
+        aType,
+        anEmail,
+        aName
     );
 
     repository.save(CreditSimulationEntity.from(aCreditSimulation));

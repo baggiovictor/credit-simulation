@@ -20,6 +20,12 @@ public class CreditSimulationEntity {
   @Column(name = "id", nullable = false)
   private final String id;
 
+  @Column(name = "customer_email", nullable = false)
+  private final String customerEmail;
+
+  @Column(name = "customer_name", nullable = false)
+  private final String customerName;
+
   @Column(name = "amount", nullable = false)
   private final BigDecimal amount;
 
@@ -50,6 +56,8 @@ public class CreditSimulationEntity {
   public static CreditSimulationEntity from(final CreditSimulation aCredit) {
     return new CreditSimulationEntity(
         aCredit.getId(),
+        aCredit.getCustomerEmail(),
+        aCredit.getCustomerName(),
         aCredit.getAmount(),
         aCredit.getTermInMonths(),
         aCredit.getMonthlyInstallment(),
@@ -59,5 +67,22 @@ public class CreditSimulationEntity {
         aCredit.getCreatedAt(),
         aCredit.getUpdatedAt(),
         aCredit.getDeletedAt());
+  }
+
+  public CreditSimulation toAggregate() {
+    return CreditSimulation.with(
+        getId(),
+        getCustomerEmail(),
+        getCustomerName(),
+        getAmount(),
+        getInterestRate(),
+        getTermInMonths(),
+        getMonthlyInstallment(),
+        getTotalPayment(),
+        getTotalInterest(),
+        getCreatedAt(),
+        getUpdatedAt(),
+        getDeletedAt()
+    );
   }
 }

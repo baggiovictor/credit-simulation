@@ -14,6 +14,10 @@ public class CreditSimulation {
 
   private final String id;
 
+  private final String customerName;
+
+  private final String customerEmail;
+
   private final BigDecimal amount;
 
   private final BigDecimal interestRate;
@@ -34,6 +38,8 @@ public class CreditSimulation {
 
   protected CreditSimulation(
       final String anId,
+      final String aCustomerEmail,
+      final String aCustomerName,
       final BigDecimal aAmount,
       final BigDecimal anInterestRate,
       final int aTermInMonths,
@@ -44,6 +50,8 @@ public class CreditSimulation {
       final Instant aUpdatedAt,
       final Instant aDeletedAt) {
     this.id = anId;
+    this.customerEmail = aCustomerEmail;
+    this.customerName = aCustomerName;
     this.amount = aAmount;
     this.interestRate = anInterestRate;
     this.termInMonths = aTermInMonths;
@@ -59,7 +67,9 @@ public class CreditSimulation {
       final BigDecimal aAmount,
       final int aTermInMonths,
       final int anAge,
-      final CreditSimulationEnum type
+      final CreditSimulationEnum type,
+      final String aCustomerEmail,
+      final String aCustomerName
   ) {
 
     final var id = randomUUID().toString();
@@ -75,6 +85,8 @@ public class CreditSimulation {
 
     return new CreditSimulation(
         id,
+        aCustomerEmail,
+        aCustomerName,
         aAmount,
         aInterestRate,
         aTermInMonths,
@@ -85,4 +97,33 @@ public class CreditSimulation {
         now,
         null);
   }
+
+  public static CreditSimulation with(
+      final String anId,
+      final String aCustomerEmail,
+      final String aCustomerName,
+      final BigDecimal aAmount,
+      final BigDecimal anInterestRate,
+      final int aTermInMonths,
+      final BigDecimal aMonthlyInstallment,
+      final BigDecimal aTotalPayment,
+      final BigDecimal aTotalInterest,
+      final Instant aCreatedAt,
+      final Instant aUpdatedAt,
+      final Instant aDeletedAt) {
+    return new CreditSimulation(
+        anId,
+        aCustomerEmail,
+        aCustomerName,
+        aAmount,
+        anInterestRate,
+        aTermInMonths,
+        aMonthlyInstallment,
+        aTotalPayment,
+        aTotalInterest,
+        aCreatedAt,
+        aUpdatedAt,
+        aDeletedAt);
+  }
+
 }
