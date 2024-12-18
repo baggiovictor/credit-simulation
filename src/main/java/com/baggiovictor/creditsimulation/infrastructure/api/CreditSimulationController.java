@@ -12,28 +12,30 @@ import org.springframework.data.domain.Slice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/simulations")
 public class CreditSimulationController {
 
   private final CreateCreditSimulationAppService createService;
   private final GetAllCreditSimulationAppService getAllService;
   private final GetByIdCreditSimulationUseCase getByIdService;
 
-  @PostMapping("/simulate")
+  @PostMapping
   public String createSimulation(@RequestBody CreateCreditSimulationCommand command) {
     return createService.execute(command);
   }
 
-  @GetMapping("/simulations")
+  @GetMapping
   public Slice<CreditSimulation> getAllSimulations(Pageable page) {
     return getAllService.execute(page);
   }
 
-  @GetMapping("/simulations/{id}")
+  @GetMapping("/{id}")
   public CreditSimulation getSimulationById(@RequestParam String id) {
     return getByIdService.execute(id)
         .orElseThrow(() -> new IllegalArgumentException("Simulation not found"));
