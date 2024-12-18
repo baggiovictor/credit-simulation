@@ -3,7 +3,7 @@ package com.baggiovictor.creditsimulation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "com.baggiovictor.creditsimulation")
+@SpringBootApplication
 public class CreditSimulationApplication {
 
   public static void main(String[] args) {
