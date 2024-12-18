@@ -23,9 +23,6 @@ import java.util.concurrent.Executors;
 @Service
 public class CreateInLotCreditSimulationAppService implements CreateInLotCreditSimulationUseCase {
 
-  /**
-   * Repositório para persistir as simulações de crédito.
-   */
   private final CreditSimulationRepository repository;
 
   /**
@@ -36,7 +33,6 @@ public class CreateInLotCreditSimulationAppService implements CreateInLotCreditS
   /**
    * ExecutorService com um pool fixo de 4 threads para executar o processamento em paralelo.
    */
-
   private final ExecutorService executorService = Executors.newFixedThreadPool(4);
 
   /**
@@ -48,7 +44,6 @@ public class CreateInLotCreditSimulationAppService implements CreateInLotCreditS
    */
   @Override
   public void execute(List<CreateInLotCreditSimulationCommand> commandList) {
-    // Marca o tempo inicial de execução
     long startTime = System.currentTimeMillis();
 
     int totalSimulations = commandList.size();
